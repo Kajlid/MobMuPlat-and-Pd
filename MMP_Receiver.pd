@@ -1,0 +1,47 @@
+#N canvas -11 -11 1825 1016 10;
+#X obj 8 8 netreceive -u -b 54321;
+#X obj 8 32 oscparse;
+#X floatatom 9 137 5 0 0 0 - - -;
+#X floatatom 62 137 5 0 0 0 - - -;
+#X floatatom 250 137 5 0 0 0 - - -;
+#X floatatom 294 137 5 0 0 0 - - -;
+#X floatatom 337 137 5 0 0 0 - - -;
+#X obj 72 54 print;
+#X obj 8 54 list trim;
+#X text 100 139 Tilt X and Y;
+#X text 380 138 Accel X \, Y \, Z;
+#X obj 250 155 s accX;
+#X obj 9 155 s tiltX;
+#X obj 62 155 s tiltY;
+#X obj 294 155 s accY;
+#X obj 337 155 s accZ;
+#X obj 8 78 unpack s f f f f f f;
+#X text 217 5 MobMuPlat OSC receiver patch for DM1588 - 2020 ----------------------------
+;
+#X text 16 202 -----------------------------------------------------------
+;
+#X text 217 46 Top section is essential \, you can leave it untouched
+;
+#X obj 19 280 r tiltX;
+#X floatatom 19 300 5 0 0 0 - - -;
+#X floatatom 99 300 5 0 0 0 - - -;
+#X obj 99 280 r accX;
+#X text 16 224 Create your own patch down here Start with a receive
+object (r) See example in the instruction;
+#X text 15 179 Each of these variables are float numbers between -1
+and 1;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 2 0 12 0;
+#X connect 3 0 13 0;
+#X connect 4 0 11 0;
+#X connect 5 0 14 0;
+#X connect 6 0 15 0;
+#X connect 8 0 16 0;
+#X connect 16 2 2 0;
+#X connect 16 3 3 0;
+#X connect 16 4 4 0;
+#X connect 16 5 5 0;
+#X connect 16 6 6 0;
+#X connect 20 0 21 0;
+#X connect 23 0 22 0;
